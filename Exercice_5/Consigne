@@ -1,0 +1,7 @@
+En vous inspirant du programme écrit à la question précédente, écrivez, compilez et exécutez un programme distribué, fait de deux processus (et qui vérie bien qu'il n'y a que deux
+processus), tel que les deux processus jouent au ping-pong : l'un d'eux doit envoyer un nombre
+(par exemple 100 pour l'un des processus et 200 pour l'autre), l'autre doit le recevoir et le
+renvoyer au premier, qui le reçoit à son tour et le renvoie, etc... Pour chaque envoi et chaque
+réception, chaque processus achera un phrase qui décrit cet envoi ou cette réception. Le
+nombre d'envois sera précisé par un entier N . Exécutez votre programme pour diérentes
+valeurs de N (par exemple N = 5, 10, 100).

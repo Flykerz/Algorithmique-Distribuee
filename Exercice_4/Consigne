@@ -1,0 +1,7 @@
+Écrivez et exécutez un programme distribué, fait de deux processus (et qui vérie bien
+qu'il n'y a que deux processus), tel que l'un des processus envoie un certain nombre (par
+exemple 100 pour l'un des processus et 200 pour l'autre) à l'autre processus, puis reçoit de
+lui un certain nombre k. L'autre processus recevra un nombre k du premier et le lui renverra.
+Lors de chaque réception et de chaque envoi, chaque processus devra acher une phrase qui
+précise son propre identiant, et qui explique ensuite qu'il envoie (ou reçoit) une valeur qu'il
+précisera au (du) processus dont l'identiant sera lui-aussi précisé.

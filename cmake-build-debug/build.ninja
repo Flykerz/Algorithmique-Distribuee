@@ -49,29 +49,41 @@ cmake_ninja_workdir = /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/
 
 build cmake_object_order_depends_target_Algorithmique_Distribuee: phony || CMakeFiles/Algorithmique_Distribuee.dir
 
-build CMakeFiles/Algorithmique_Distribuee.dir/Exercice0.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice0.c || cmake_object_order_depends_target_Algorithmique_Distribuee
-  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice0.c.o.d
+build CMakeFiles/Algorithmique_Distribuee.dir/Exercice_0/Exercice0.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice_0/Exercice0.c || cmake_object_order_depends_target_Algorithmique_Distribuee
+  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_0/Exercice0.c.o.d
   FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/Algorithmique_Distribuee.dir
-  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir
+  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_0
 
-build CMakeFiles/Algorithmique_Distribuee.dir/hellompi.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/hellompi.c || cmake_object_order_depends_target_Algorithmique_Distribuee
-  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/hellompi.c.o.d
+build CMakeFiles/Algorithmique_Distribuee.dir/Exercice_1/hellompi.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice_1/hellompi.c || cmake_object_order_depends_target_Algorithmique_Distribuee
+  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_1/hellompi.c.o.d
   FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/Algorithmique_Distribuee.dir
-  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir
+  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_1
 
-build CMakeFiles/Algorithmique_Distribuee.dir/Exercice2.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice2.c || cmake_object_order_depends_target_Algorithmique_Distribuee
-  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice2.c.o.d
+build CMakeFiles/Algorithmique_Distribuee.dir/Exercice_2/Exercice2.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice_2/Exercice2.c || cmake_object_order_depends_target_Algorithmique_Distribuee
+  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_2/Exercice2.c.o.d
   FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/Algorithmique_Distribuee.dir
-  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir
+  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_2
 
-build CMakeFiles/Algorithmique_Distribuee.dir/Exercice3.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice3.c || cmake_object_order_depends_target_Algorithmique_Distribuee
-  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice3.c.o.d
+build CMakeFiles/Algorithmique_Distribuee.dir/Exercice_3/Exercice3.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice_3/Exercice3.c || cmake_object_order_depends_target_Algorithmique_Distribuee
+  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_3/Exercice3.c.o.d
   FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/Algorithmique_Distribuee.dir
-  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir
+  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_3
+
+build CMakeFiles/Algorithmique_Distribuee.dir/Exercice_4/Exercice4.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice_4/Exercice4.c || cmake_object_order_depends_target_Algorithmique_Distribuee
+  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_4/Exercice4.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/Algorithmique_Distribuee.dir
+  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_4
+
+build CMakeFiles/Algorithmique_Distribuee.dir/Exercice_5/Exercice5.c.o: C_COMPILER__Algorithmique_Distribuee_unscanned_Debug /Users/theoschrive/CLionProjects/Algorithmique-Distribuee/Exercice_5/Exercice5.c || cmake_object_order_depends_target_Algorithmique_Distribuee
+  DEP_FILE = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_5/Exercice5.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/Algorithmique_Distribuee.dir
+  OBJECT_FILE_DIR = CMakeFiles/Algorithmique_Distribuee.dir/Exercice_5
 
 
 # =============================================================================
@@ -81,7 +93,7 @@ build CMakeFiles/Algorithmique_Distribuee.dir/Exercice3.c.o: C_COMPILER__Algorit
 #############################################
 # Link the executable Algorithmique_Distribuee
 
-build Algorithmique_Distribuee: C_EXECUTABLE_LINKER__Algorithmique_Distribuee_Debug CMakeFiles/Algorithmique_Distribuee.dir/Exercice0.c.o CMakeFiles/Algorithmique_Distribuee.dir/hellompi.c.o CMakeFiles/Algorithmique_Distribuee.dir/Exercice2.c.o CMakeFiles/Algorithmique_Distribuee.dir/Exercice3.c.o
+build Algorithmique_Distribuee: C_EXECUTABLE_LINKER__Algorithmique_Distribuee_Debug CMakeFiles/Algorithmique_Distribuee.dir/Exercice_0/Exercice0.c.o CMakeFiles/Algorithmique_Distribuee.dir/Exercice_1/hellompi.c.o CMakeFiles/Algorithmique_Distribuee.dir/Exercice_2/Exercice2.c.o CMakeFiles/Algorithmique_Distribuee.dir/Exercice_3/Exercice3.c.o CMakeFiles/Algorithmique_Distribuee.dir/Exercice_4/Exercice4.c.o CMakeFiles/Algorithmique_Distribuee.dir/Exercice_5/Exercice5.c.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk
   OBJECT_DIR = CMakeFiles/Algorithmique_Distribuee.dir
   POST_BUILD = :

@@ -1,9 +1,5 @@
-//Écrivez, compilez et exécutez un programme distribué, fait de deux processus (et qui
-//        vérie bien qu'il n'y a que deux processus), tel que chacun des processus envoie son identiant
-//        à l'autre processus, et ache le message reçu.
-
 //mpicc -Wall Exercice3.c -o Exercice3
-//mpirun -np 4 ./Exercice3
+//mpirun -np 2 ./Exercice3
 
 #include <stdio.h>
 #include <mpi.h>
