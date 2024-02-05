@@ -1,3 +1,14 @@
+//Écrivez un programme C, utilisant MPI tel que chaque processus ache son identiant
+//(sans oublier le retour chariot). Appelez votre source hellompi.c. Pour compiler, utilisez la
+//        commande :
+//mpicc -Wall hellompi.c -o hellompi
+//Pour exécuter votre programme distribué avec n processus, utilisez la commande :
+//mpirun -np n ./hellompi
+//        Compilez et lancez votre programme avec 4 processus.
+
+//mpicc -Wall hellompi.c -o hellompi
+//mpirun -np 4 ./hellompi
+
 #include <stdio.h>
 #include <mpi.h>
 

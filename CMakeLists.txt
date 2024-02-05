@@ -5,4 +5,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(Algorithmique_Distribuee
         Exercice0.c
-        hellompi.c)
+        hellompi.c
+        Exercice2.c
+        Exercice3.c)
