@@ -9,4 +9,5 @@ add_executable(Algorithmique_Distribuee
         "Exercice_2/Exercice2.c"
         "Exercice_3/Exercice3.c"
         "Exercice_4/Exercice4.c"
-        "Exercice_5/Exercice5.c")
+        "Exercice_5/Exercice5.c"
+        Exercice_6/Exercice6.c)

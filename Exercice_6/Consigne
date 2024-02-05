@@ -1,0 +1,5 @@
+Écrivez, compilez et exécutez un programme distribué, fait de n processus, tel que le
+premier processus envoie un nombre (par exemple 100) au deuxième processus, reçoit un
+nombre k du n-ième processus, et ache ce nombre. Tous les autres processus doivent recevoir
+un nombre k du processus précédent (dans l'ordre circulaire des identiants) et le renvoyer au
+processus suivant. Exécutez votre programme avec n = 3 et avec n = 20.
