@@ -1,5 +1,5 @@
-//mpicc -Wall Exercice5.c -o Exercice5
-//mpirun -np 2 ./Exercice5
+//mpicc -Wall Exercice6.c -o Exercice6
+//mpirun -np 3 ./Exercice6
 
 #include <stdio.h>
 #include <mpi.h>
@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (rank == 0) {
-        n = 3; // Modifier cette valeur selon le nombre de processus
+        n = 20; // Modifier cette valeur selon le nombre de processus
 
         value_to_send = 100;
 
