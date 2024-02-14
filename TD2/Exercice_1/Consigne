@@ -1,1 +1,10 @@
 Implémenter l'algorithme CAST en C
+Si identifiant 6= 0 alors {
+Recevoir M de l’entité de calcul d’identifiant b(i − 1)/2c ;
+}
+Si 2 ∗ identifiant + 1 < n alors {
+Envoyer M à l’entité de calcul d’identifiant 2 ∗ identifiant + 1 ;
+}
+Si 2 ∗ identifiant + 2 < n alors {
+Envoyer M à l’entité de calcul d’identifiant 2 ∗ identifiant + 2 ;
+}
