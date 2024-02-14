@@ -1,0 +1,10 @@
+En s'inspirant de l'exercice précédent, écrivez, compilez et exécutez un programme distribué, fait de n processus (connectés dans l'ordre circulaire des identiants), tel que chaque
+processus génère un entier au hasard entre 0 et une valeur M . Ces processus doivent déterminer collectivement les valeurs maximale et minimale parmi ces nombres à l'aide de messages.
+Vous ferez 3 versions de ce programme :
+a) Dans la première version, chaque processus n'enverra (et ne recevra) qu'un seul message
+fait de deux entiers placés de manière consécutive dans la mémoire.
+b) Dans la deuxième version, chaque processus enverra (et recevra) deux messages faits
+d'un seul entier, discriminés en utilisant la balise.
+c) Dans la troisième version, chaque processus enverra (et recevra) deux messages faits
+d'un seul entier, qui ne seront pas discriminés en utilisant la balise.
+Exécutez chaque version de votre programme avec M = 100 et n = 10. Qu'observez vous ?

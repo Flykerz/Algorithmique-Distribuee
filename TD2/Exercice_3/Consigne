@@ -1,0 +1,3 @@
+Écrivez, compilez et exécutez un programme distribué, fait de deux processus (et qui
+vérie bien qu'il n'y a que deux processus), tel que chacun des processus envoie son identiant
+à l'autre processus, et ache le message reçu.

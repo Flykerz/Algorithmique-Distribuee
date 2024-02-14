@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (rank == 0) {
-        n = 20; // Modifier cette valeur selon le nombre de processus
+        n = 3; // Modifier cette valeur selon le nombre de processus
 
         value_to_send = 100;
 
