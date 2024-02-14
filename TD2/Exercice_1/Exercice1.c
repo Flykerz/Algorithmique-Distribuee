@@ -15,7 +15,6 @@ int main(int argc, char** argv) {
     MPI_Comm_size(MPI_COMM_WORLD, &nb_processus);
 
     int identifiant;
-    const int M = 100;
 
     MPI_Comm_rank(MPI_COMM_WORLD, &identifiant);
 
@@ -43,7 +42,7 @@ int main(int argc, char** argv) {
         MPI_Recv(&nombresfils, 2, MPI_INT, ((identifiant - 1)/2)%nb_processus , 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         if (filsG < nb_processus) MPI_Send(&mesnombres, 2, MPI_INT, filsG, 0, MPI_COMM_WORLD);
         if (filsD < nb_processus) MPI_Send(&mesnombres, 2, MPI_INT, filsD, 0, MPI_COMM_WORLD);
-        printf("Processus %d Fils Droit %d et Fils Gauche %d du processus %d\n", identifiant, nombresfils[0], nombresfils[1], filsG);
+        printf("Processus %d Fils Droit %d, Fils Gauche %d du processus %d\n", identifiant, nombresfils[0], nombresfils[1], filsG);
 
     }
 
