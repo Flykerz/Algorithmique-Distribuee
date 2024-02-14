@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <mpi.h>
-#include <tclDecls.h>
 
 int main(int argc, char** argv) {
 
@@ -17,15 +16,11 @@ int main(int argc, char** argv) {
 
     int identifiant;
     const int M = 100;
-    int origine_id = status.MPI.SOURCE;
-    int balise = status.MPI_TAG;
 
     MPI_Comm_rank(MPI_COMM_WORLD, &identifiant);
 
-    int filsD = (2 * identifiant + 1) ;
-    int filsG = (2 * identifiant - 1) ;
-
-    if (identifiant == 0) filsG = nb_processus - 1;
+    int filsD = (2 * identifiant + 2) ;
+    int filsG = (2 * identifiant + 1) ;
 
     int mesnombres[2];
     int nombresfils[2];
@@ -33,19 +28,23 @@ int main(int argc, char** argv) {
     if (identifiant == 0) {
         srand(time(NULL) + identifiant);
 
-        int k1 = (rand() / (float)RAND_MAX) * (M+1);
-        int k2 = (rand() / (float)RAND_MAX) * (M+1);
+        int k1 = rand()%1001;
+        int k2 = rand()%1001;
 
         if (k1 < k2) {mesnombres[0] = k1; mesnombres[1] = k2;}
         else {mesnombres[0] = k2; mesnombres[1] = k1;}
+
+        if (filsG < nb_processus) MPI_Send(&mesnombres, 2, MPI_INT, filsG, 0, MPI_COMM_WORLD);
+
+        if (filsD < nb_processus) MPI_Send(&mesnombres, 2, MPI_INT, filsD, 0, MPI_COMM_WORLD);
+
     }
     else {
-        MPI_Recv(&nombresfils, 2, MPI_INT, filsG, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        printf("Processus %d recoit le nombre min %d et max %d du processus %d\n", identifiant, nombresfils[0], nombresfils[1], filsG);
-        if (nombresfils[0] < mesnombres[0]) mesnombres[0] = nombresfils[0];
-        if (nombresfils[1] > mesnombres[1]) mesnombres[1] = nombresfils[1];
-        MPI_Send(&mesnombres, 2, MPI_INT, filsD, 0, MPI_COMM_WORLD);
-        printf("Processus %d envoie le nombre min %d et max %d au processus %d\n", identifiant, mesnombres[0], mesnombres[1], filsD);
+        MPI_Recv(&nombresfils, 2, MPI_INT, ((identifiant - 1)/2)%nb_processus , 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        if (filsG < nb_processus) MPI_Send(&mesnombres, 2, MPI_INT, filsG, 0, MPI_COMM_WORLD);
+        if (filsD < nb_processus) MPI_Send(&mesnombres, 2, MPI_INT, filsD, 0, MPI_COMM_WORLD);
+        printf("Processus %d Fils Droit %d et Fils Gauche %d du processus %d\n", identifiant, nombresfils[0], nombresfils[1], filsG);
+
     }
 
     MPI_Finalize();
