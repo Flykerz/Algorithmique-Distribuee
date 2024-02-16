@@ -1,40 +1,67 @@
-//mpicc -Wall Exercice4.c -o Exercice4
-//mpirun -np 2 ./Exercice4
+//mpicc -Wall Exercice3.c -o Exercice3
+//mpirun -np 4 ./Exercice3
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <mpi.h>
 
-int main(int argc, char *argv[]) {
-    int rank, size, value_to_send, received_value;
+#define MAX 50
 
-    MPI_Init(&argc, &argv); // Initialisation de MPI
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank); // Obtention de l'identifiant du processus
-    MPI_Comm_size(MPI_COMM_WORLD, &size); // Obtention du nombre total de processus
+int main(int argc, char** argv) {
 
-    if (size != 2) {
-        fprintf(stderr, "Le programme doit être exécuté avec exactement deux processus.\n");
-        MPI_Abort(MPI_COMM_WORLD, 1); // Arrêt de tous les processus MPI
+    MPI_Init(NULL, NULL);
+
+    int nb_processus;
+    MPI_Comm_size(MPI_COMM_WORLD, &nb_processus);
+
+
+    int identifiant;
+    MPI_Comm_rank(MPI_COMM_WORLD, &identifiant);
+
+    if (identifiant == 0) {
+        int n1,n2, *tab;
+
+        srand(time(NULL));
+
+        n1 = rand()%(MAX + 1);
+        n2 = rand()%(MAX + 1);
+
+        tab = (int*) malloc (sizeof(int) * 1 + rand()%10);
+        tab[0] = n1;
+        tab[1] = n2;
+
+        for (int i=1; i < nb_processus; i++) {
+            MPI_Send(tab, 2, MPI_INT, i, 0, MPI_COMM_WORLD);
+        }
+
+        printf("processeur %d demarre l'innondation avec les données %d et %d\n",identifiant,tab[0],tab[1]);
+
+        free(tab);
+
+    }
+    else {
+        int *M = (int*) malloc (sizeof(int) * 1 + rand()%10);
+        int origine_id;
+        MPI_Status status;
+
+        MPI_Recv(M, 2, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
+
+        origine_id = status.MPI_SOURCE;
+
+        printf("processeur %d recoit les données %d et %d du processus avec id %d\n",identifiant,M[0],M[1], origine_id);
+
+        for (int i=0; i < nb_processus; i++) {
+            if (i != origine_id) {
+                MPI_Send(M, 2, MPI_INT, i, 0, MPI_COMM_WORLD);
+            }
+        }
+
+        free(M);
+
     }
 
-    if (rank == 0) {
-        value_to_send = 100;
+    MPI_Finalize();
 
-        printf("Processus 0 envoie la valeur %d à Processus 1\n", value_to_send);
-        MPI_Send(&value_to_send, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-
-        MPI_Recv(&received_value, 1, MPI_INT, 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        printf("Processus 0 reçoit la valeur %d de Processus 1\n", received_value);
-
-    } else if (rank == 1) {
-        MPI_Recv(&received_value, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        printf("Processus 1 reçoit la valeur %d de Processus 0\n", received_value);
-
-        // Suppose que chaque processus renvoie simplement la valeur reçue
-        MPI_Send(&received_value, 1, MPI_INT, 0, 1, MPI_COMM_WORLD);
-        printf("Processus 1 renvoie la valeur %d à Processus 0\n", received_value);
-    }
-
-    MPI_Finalize(); // Finalisation de MPI
-
-    return 0;
+    return EXIT_SUCCESS;
 }

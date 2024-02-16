@@ -2,34 +2,66 @@
 //mpirun -np 4 ./Exercice2
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <mpi.h>
 
-int main(int argc, char *argv[]) {
-    int rank, size;
-    double start_time, end_time;
+#define MAX 50
 
-    MPI_Init(&argc, &argv); // Initialisation de MPI
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank); // Obtention de l'identifiant du processus
-    MPI_Comm_size(MPI_COMM_WORLD, &size); // Obtention du nombre total de processus
+int main(int argc, char** argv) {
 
-    start_time = MPI_Wtime(); // Mesure du temps au début de l'exécution
+    MPI_Init(NULL, NULL);
 
-    printf("Hello from process %d of %d\n", rank, size);
+    int nb_processus;
+    MPI_Comm_size(MPI_COMM_WORLD, &nb_processus);
 
-    // Exemple d'envoi et de réception de messages entre les processus
-    if (rank == 0) {
-        int data = 42;
-        MPI_Send(&data, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-    } else if (rank == 1) {
-        int received_data;
-        MPI_Recv(&received_data, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        printf("Process 1 received data: %d\n", received_data);
+
+    int identifiant;
+    MPI_Comm_rank(MPI_COMM_WORLD, &identifiant);
+
+    if (identifiant == 0) {
+        int n1,n2, *tab;
+
+        srand(time(NULL));
+
+        n1 = rand()%(MAX + 1);
+        n2 = rand()%(MAX + 1);
+
+        tab = (int*) malloc (sizeof(int)*2);
+        tab[0] = n1;
+        tab[1] = n2;
+
+        for (int i=1; i < nb_processus; i++) {
+            MPI_Send(tab, 2, MPI_INT, i, 0, MPI_COMM_WORLD);
+        }
+
+        printf("processeur %d demarre l'innondation avec les données %d et %d\n",identifiant,tab[0],tab[1]);
+
+        free(tab);
+
+    }
+    else {
+        int *M = (int*) malloc (sizeof(int)*2);
+        int origine_id;
+        MPI_Status status;
+
+        MPI_Recv(M, 2, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
+
+        origine_id = status.MPI_SOURCE;
+
+        printf("processeur %d recoit les données %d et %d du processus avec id %d\n",identifiant,M[0],M[1], origine_id);
+
+        for (int i=0; i < nb_processus; i++) {
+            if (i != origine_id) {
+                MPI_Send(M, 2, MPI_INT, i, 0, MPI_COMM_WORLD);
+            }
+        }
+
+        free(M);
+
     }
 
-    end_time = MPI_Wtime(); // Mesure du temps juste avant MPI_Finalize
-    printf("Time elapsed for process %d: %f seconds\n", rank, end_time - start_time);
+    MPI_Finalize();
 
-    MPI_Finalize(); // Finalisation de MPI
-
-    return 0;
+    return EXIT_SUCCESS;
 }
