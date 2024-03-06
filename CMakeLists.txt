@@ -19,4 +19,8 @@ add_executable(Algorithmique_Distribuee
         "TD2/Exercice_2/Exercice2.c"
         "TD2/Exercice_3/Exercice3.c"
         "TD2/Exercice_4/Exercice4.c"
-        "TD2/Exercice_5/Exercice5.c")
+        "TD2/Exercice_5/Exercice5.c"
+        "TD3/Exercice_2/Exercice2.c"
+        "TD3/Exercice_1/Exercice1.c"
+        TD4/Exercice_1/Exercice1.c
+        TD4/Exercice_2/Exercice2.c)
